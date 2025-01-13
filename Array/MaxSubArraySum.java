@@ -49,32 +49,26 @@ public class MaxSubArraySum {
         System.out.println("max Sub arr sum:  " + maxSum);
     }
 
-    // max sub array sum
-    // Method 2: prefix Approach
-    // TC: O(n2)
-    // SC: O(n)
+    // max sub
+    // array sum
+    // Method 3: Kadanes Algorithm
+    // TC: O(n)
+    // SC: O(1)
     public static void maxSubArrSum3(int arr[]) {
-        int prefix[] = new int[arr.length];
-        prefix[0] = arr[0];
-
-        // prefix: i==0 (all sub array sum calc)
-        for (int i = 1; i < arr.length; i++) {
-            prefix[i] = prefix[i - 1] + arr[i];
-        }
-
-        int maxSum = Integer.MIN_VALUE; // - infinity
+        int currSum = 0;
+        int maxSum = Integer.MIN_VALUE;
 
         for (int i = 0; i < arr.length; i++) {
-            for (int j = i; j < arr.length; j++) {
-
-                int sum = (i == 0) ? prefix[j] : prefix[j] - prefix[i - 1];
-
-                if (sum > maxSum) {
-                    maxSum = sum;
-                }
+            currSum += arr[i];
+            // if current sum < 0 : sum = 0
+            if (currSum < 0) {
+                currSum = 0;
+            }
+            if (currSum > maxSum) {
+                maxSum = currSum;
             }
         }
-        System.out.println("max Sub arr sum:  " + maxSum);
+        System.out.println("max sub arr sum: " + maxSum);
     }
 
     public static void main(String[] args) {

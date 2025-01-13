@@ -206,6 +206,26 @@ public class Board {
         System.out.println("max Sub arr sum:  " + maxSum);
     }
 
+    // max sub array sum
+    // Method 3: Kadanes Algorithm
+    // TC: O(n)
+    // SC: O(1)
+    public static void maxSubArrSum3(int arr[]) {
+        int currSum = 0;
+        int maxSum = Integer.MIN_VALUE;
+
+        for (int i = 0; i < arr.length; i++) {
+            currSum += arr[i];
+            if (currSum < 0) {
+                currSum = 0;
+            }
+            if (currSum > maxSum) {
+                maxSum = currSum;
+            }
+        }
+        System.out.println("max sub arr sum: " + maxSum);
+    }
+
     public static void main(String args[]) {
         // this is my first program (08-01-2025)
 
@@ -282,10 +302,11 @@ public class Board {
 
         // print max sub arr sum
         // Method 1: prefix Approach
-        // int arr[] = { 2, 4, 6, 8, 10 }; // ans: 30
-        int arr[] = { 1, -2, 6, -1, 3 }; // ans: 30
+        int arr[] = { 2, 4, 6, 8, 10 }; // ans: 30
+        // int arr[] = { 1, -2, 6, -1, 3 }; // ans: 8
         // maxSubArrSum(arr);
         maxSubArrSum2(arr);
+        maxSubArrSum3(arr);
     }
 
 }
