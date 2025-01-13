@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class NumberGuessingGame {
 
-    // number guessing function
+    // number guessing game function
     public static void numberGuessing() {
         Scanner input = new Scanner(System.in);
 
@@ -43,7 +43,7 @@ public class NumberGuessingGame {
     }
 
     public static void main(String[] args) {
-        // invoke number guessing function
+        // invoke number guessing game function
         numberGuessing();
     }
 }

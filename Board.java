@@ -81,7 +81,7 @@ public class Board {
         return false;
     }
 
-    // number Guessing (using Binary Search)
+    // number Guessing game (using Binary Search)
     public static void numberGuessing() {
 
         Scanner input = new Scanner(System.in);
