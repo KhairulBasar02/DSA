@@ -70,6 +70,36 @@ public class MaxSubArraySum {
         System.out.println("max sub arr sum: " + maxSum);
     }
 
+    // 53. Maximum Subarray (leetcode)
+    // TC: O(n)
+    // SC: O(1)
+    public int maxSubArray(int[] nums) {
+        int maxSum = Integer.MIN_VALUE;
+        int currSum = 0;
+        int count = 0;
+
+        for (int n : nums) {
+            if (n < 0) {
+                count++;
+            }
+        }
+
+        if (count == nums.length) {
+            for (int i = 0; i < nums.length; i++) {
+                maxSum = Math.max(maxSum, nums[i]);
+            }
+        } else {
+            for (int i = 0; i < nums.length; i++) {
+                currSum += nums[i];
+                if (currSum < 0) {
+                    currSum = 0;
+                }
+                maxSum = Math.max(maxSum, currSum);
+            }
+        }
+        return maxSum;
+    }
+
     public static void main(String[] args) {
         // print max sub arr sum
         int arr[] = { 2, 4, 6, 8, 10 }; // ans: 30
