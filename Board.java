@@ -83,7 +83,7 @@ public class Board {
 
     // Guessing number (using Binary Search)
     public static void guessingNumber() {
-        
+
         Scanner input = new Scanner(System.in);
 
         System.out.println("Valid numbers are between 1 and 10,000");
@@ -118,7 +118,7 @@ public class Board {
         } else {
             System.out.println("You entered an invalid number. You are out of the game.");
         }
-
+        input.close();
     }
 
     // Reverse Array

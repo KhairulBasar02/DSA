@@ -1,8 +1,9 @@
 import java.util.Scanner;
 
 public class GuessingNumGame {
-    public static void guessingNumber() {
 
+    // guessing number function
+    public static void guessingNumber() {
         Scanner input = new Scanner(System.in);
 
         System.out.println("Valid numbers are between 1 and 10,000");
@@ -37,7 +38,8 @@ public class GuessingNumGame {
         } else {
             System.out.println("You entered an invalid number. You are out of the game.");
         }
-
+        
+        input.close();
     }
 
     public static void main(String[] args) {
