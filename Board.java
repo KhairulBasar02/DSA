@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Board {
 
     // no need to create obj (directly use twoNumberSum func)
@@ -66,7 +68,7 @@ public class Board {
         int mid;
 
         while (left <= right) {
-            mid = (left + right) / 2;
+            mid = left + (right - left) / 2;
 
             if (target == arr[mid]) {
                 return true;
@@ -77,6 +79,46 @@ public class Board {
             }
         }
         return false;
+    }
+
+    // Guessing number (using Binary Search)
+    public static void guessingNumber() {
+        
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Valid numbers are between 1 and 10,000");
+        System.out.print("Play the game from number 1 to ?: ");
+        int number = input.nextInt();
+
+        if (number >= 1 && number <= 10000) {
+
+            int randomNum = (int) Math.floor(Math.random() * number) + 1;
+            int tries = 0;
+
+            System.out.print("Enter your guess number: ");
+            int guess = input.nextInt();
+
+            while (true) {
+                if (randomNum == guess) {
+                    System.out.println("\n------------congratulations-------------");
+                    System.out.println("You're right! This is the right number.  ");
+                    System.out.println("You won the game after " + tries + " tries.");
+                    System.out.println("-----------------------------------------");
+                    break;
+                } else if (randomNum < guess) {
+                    System.out.print("Too high: Try again Enter your guess number: ");
+                    guess = input.nextInt();
+                    tries++;
+                } else if (randomNum > guess) {
+                    System.out.print("Too Low: Try again Enter your guess number: ");
+                    guess = input.nextInt();
+                    tries++;
+                }
+            }
+        } else {
+            System.out.println("You entered an invalid number. You are out of the game.");
+        }
+
     }
 
     // Reverse Array
@@ -113,6 +155,24 @@ public class Board {
             }
             System.out.println();
         }
+    }
+
+    public static void maxSubArrSum(int arr[]) {
+        int maxSub = Integer.MIN_VALUE;
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i; j < arr.length; j++) {
+                int sum = 0;
+                for (int k = i; k <= j; k++) {
+                    sum += arr[k];
+                }
+                if (sum > maxSub) {
+                    maxSub = sum;
+                }
+                // System.out.print(sum + " ");
+            }
+            // System.out.println();
+        }
+        System.out.println("max sub arr sub: " + maxSub);
     }
 
     public static void main(String args[]) {
@@ -174,9 +234,14 @@ public class Board {
         // pairArray(arr);
 
         // print sub array
-        int arr[] = { 2, 4, 6, 8 ,10};
-        printSubArr(arr);
+        // int arr[] = { 2, 4, 6, 8 ,10};
+        // printSubArr(arr);
 
-    }   
+        // print max sub array sum
+        // int arr[] = { 1, 2, 3, 4 };
+        // maxSubArrSum(arr);
+
+        guessingNumber();
+    }
 
 }
