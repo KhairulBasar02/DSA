@@ -38,7 +38,7 @@ public class GuessingNumGame {
         } else {
             System.out.println("You entered an invalid number. You are out of the game.");
         }
-        
+
         input.close();
     }
 
