@@ -49,8 +49,7 @@ public class MaxSubArraySum {
         System.out.println("max Sub arr sum:  " + maxSum);
     }
 
-    // max sub
-    // array sum
+    // max sub array sum
     // Method 3: Kadanes Algorithm
     // TC: O(n)
     // SC: O(1)
@@ -74,11 +73,15 @@ public class MaxSubArraySum {
     public static void main(String[] args) {
         // print max sub arr sum
         int arr[] = { 2, 4, 6, 8, 10 }; // ans: 30
+
         // Method 1: Brute Force Approach
         maxSubArrSum(arr);
 
         // Method 2: prefix Approach
         maxSubArrSum2(arr);
+
+        // Method 3: Kadanes Algorithm
+        maxSubArrSum3(arr);
 
     }
 }
