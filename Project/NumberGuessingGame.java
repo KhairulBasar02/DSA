@@ -1,9 +1,9 @@
 import java.util.Scanner;
 
-public class GuessingNumGame {
+public class NumberGuessingGame {
 
-    // guessing number function
-    public static void guessingNumber() {
+    // number guessing function
+    public static void numberGuessing() {
         Scanner input = new Scanner(System.in);
 
         System.out.println("Valid numbers are between 1 and 10,000");
@@ -43,6 +43,7 @@ public class GuessingNumGame {
     }
 
     public static void main(String[] args) {
-        guessingNumber();
+        // invoke number guessing function
+        numberGuessing();
     }
 }

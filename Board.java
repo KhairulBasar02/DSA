@@ -81,8 +81,8 @@ public class Board {
         return false;
     }
 
-    // Guessing number (using Binary Search)
-    public static void guessingNumber() {
+    // number Guessing (using Binary Search)
+    public static void numberGuessing() {
 
         Scanner input = new Scanner(System.in);
 
@@ -241,7 +241,8 @@ public class Board {
         // int arr[] = { 1, 2, 3, 4 };
         // maxSubArrSum(arr);
 
-        guessingNumber();
+        // invoke number guessing game function
+        numberGuessing();
     }
 
 }
