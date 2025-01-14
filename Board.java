@@ -226,7 +226,7 @@ public class Board {
         System.out.println("max sub arr sum: " + maxSum);
     }
 
-    // Trapping Rain water
+    /// Trapping Rain Water (42. LeetCode)
     // TC: O(n)
     // SC: O(n)
     public static int trappingRainWater(int height[]) {

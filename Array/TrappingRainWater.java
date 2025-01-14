@@ -1,6 +1,6 @@
 public class TrappingRainWater {
 
-    // Trapping Rain water
+    // Trapping Rain Water (42. LeetCode)
     // TC: O(n)
     // SC: O(n)
     public static int trappingRainWater(int height[]) {
