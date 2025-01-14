@@ -226,6 +226,36 @@ public class Board {
         System.out.println("max sub arr sum: " + maxSum);
     }
 
+    // Trapping Rain water
+    // TC: O(n)
+    // SC: O(n)
+    public static int trappingRainWater(int height[]) {
+        // 1: leftMax height
+        int leftMax[] = new int[height.length];
+        leftMax[0] = height[0];
+
+        for (int i = 1; i < leftMax.length; i++) {
+            leftMax[i] = Math.max(leftMax[i - 1], height[i]);
+        }
+
+        // 2: rightMax height
+        int rightMax[] = new int[height.length];
+        rightMax[height.length - 1] = height[height.length - 1];
+
+        for (int i = height.length - 2; i >= 0; i--) {
+            rightMax[i] = Math.max(rightMax[i + 1], height[i]);
+        }
+
+        int trappedWater = 0;
+        for (int i = 0; i < height.length; i++) {
+            // 3: waterLevel = min(leftMax, rightMax) * width
+            int waterLevel = Math.min(leftMax[i], rightMax[i]);
+            // 4; trappedWater = waterLevel - height
+            trappedWater += (waterLevel - height[i]);
+        }
+        return trappedWater;
+    }
+
     public static void main(String args[]) {
         // this is my first program (08-01-2025)
 
@@ -295,18 +325,22 @@ public class Board {
         // invoke number guessing game function
         // numberGuessing();
 
-        // print max sub arr sum
+        // print max sub arr sum----------------------------
         // Method 1: Brute Force Approach
         // int arr[] = { 2, 4, 6, 8, 10 }; // ans: 30
         // maxSubArrSum(arr);
 
-        // print max sub arr sum
-        // Method 1: prefix Approach
-        int arr[] = { 2, 4, 6, 8, 10 }; // ans: 30
-        // int arr[] = { 1, -2, 6, -1, 3 }; // ans: 8
-        // maxSubArrSum(arr);
-        maxSubArrSum2(arr);
-        maxSubArrSum3(arr);
+        // print max sub arr sum---------------------
+        // Method 2: prefix Approach
+        // int arr[] = { 2, 4, 6, 8, 10 }; // ans: 30
+        // // int arr[] = { 1, -2, 6, -1, 3 }; // ans: 8
+        // // maxSubArrSum(arr);
+        // maxSubArrSum2(arr);
+        // maxSubArrSum3(arr);
+
+        // Trapping Rain water---------------------------------------
+        int height[] = { 4, 2, 0, 6, 3, 2, 5 };
+        trappingRainWater(height);
     }
 
 }
