@@ -357,11 +357,12 @@ public class Board {
         // int height[] = { 4, 2, 0, 6, 3, 2, 5 };
         // trappingRainWater(height);
 
-        // buy and sell stock prices
+        // buy and sell stock prices program
         int prices[] = { 7, 1, 5, 3, 6, 4 };
         int maxProfit = buyAndSellStocks(prices);
 
         System.out.println("max Profit: " + maxProfit);
+
     }
 
 }
